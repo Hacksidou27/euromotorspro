@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro Motors Pro - دليل المحركات الأوروبية الشامل</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .engine-card {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .engine-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .brand-section {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+        }
+        
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .modal {
+            backdrop-filter: blur(10px);
+        }
+        
+        .pdf-viewer {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-cog text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold gradient-text">Euro Motors Pro</h1>
+                        <p class="text-sm text-gray-600">دليل المحركات الأوروبية الشامل</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 space-x-reverse">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">الرئيسية</a>
+                    <a href="#brands" class="text-gray-700 hover:text-blue-600 transition-colors">العلامات التجارية</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">الخدمات</a>
+                    <a href="#articles" class="text-gray-700 hover:text-blue-600 transition-colors">المقالات</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 text-center text-white">
+        <div class="container mx-auto px-4">
+            <div class="floating-animation">
+                <h2 class="text-5xl font-bold mb-6">مرحباً بك في عالم المحركات الأوروبية</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">دليلك الشامل لصيانة وتشخيص محركات BMW، Mercedes-Benz، Audi، Volkswagen، Renault، وPeugeot</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-white/10 backdrop-blur-md rounded-lg p-6">
+                    <i class="fas fa-tools text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">تشخيص دقيق</h3>
+                    <p>أحدث طرق تشخيص الأعطال</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-lg p-6">
+                    <i class="fas fa-book text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">أدلة شاملة</h3>
+                    <p>دليل PDF لكل محرك</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-lg p-6">
+                    <i class="fas fa-wrench text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">صيانة احترافية</h3>
+                    <p>خطوات الصيانة بالتفصيل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">العلامات التجارية</h2>
+            
+            <!-- BMW Section -->
+            <div class="brand-section rounded-2xl p-8 mb-12 shadow-xl">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold text-xl">BMW</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800">محركات BMW</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="bmw-engines">
+                    <!-- BMW engines will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Mercedes Section -->
+            <div class="brand-section rounded-2xl p-8 mb-12 shadow-xl">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold text-sm">MB</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800">محركات Mercedes-Benz</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="mercedes-engines">
+                    <!-- Mercedes engines will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Audi Section -->
+            <div class="brand-section rounded-2xl p-8 mb-12 shadow-xl">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold text-xl">A</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800">محركات Audi</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="audi-engines">
+                    <!-- Audi engines will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Volkswagen Section -->
+            <div class="brand-section rounded-2xl p-8 mb-12 shadow-xl">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold text-xl">VW</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800">محركات Volkswagen</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="vw-engines">
+                    <!-- VW engines will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Renault Section -->
+            <div class="brand-section rounded-2xl p-8 mb-12 shadow-xl">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold text-xl">R</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800">محركات Renault</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="renault-engines">
+                    <!-- Renault engines will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Peugeot Section -->
+            <div class="brand-section rounded-2xl p-8 mb-12 shadow-xl">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold text-xl">P</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800">محركات Peugeot</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="peugeot-engines">
+                    <!-- Peugeot engines will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">خدماتنا</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fas fa-search text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-4">تشخيص الأعطال</h3>
+                    <p class="text-gray-600">تشخيص دقيق لجميع أعطال المحركات الأوروبية</p>
+                </div>
+                <div class="text-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fas fa-cogs text-5xl text-green-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-4">دليل الصيانة</h3>
+                    <p class="text-gray-600">أدلة شاملة لصيانة وإصلاح المحركات</p>
+                </div>
+                <div class="text-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fas fa-shopping-cart text-5xl text-purple-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-4">قطع الغيار</h3>
+                    <p class="text-gray-600">دليل قطع الغيار الأصلية والبديلة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">أحدث المقالات</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-engine-warning text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">أعطال شائعة في محركات BMW</h3>
+                        <p class="text-gray-600 mb-4">تعرف على أكثر الأعطال شيوعاً في محركات BMW وطرق حلها</p>
+                        <button class="text-blue-600 hover:text-blue-800 font-semibold">اقرأ المزيد</button>
+                    </div>
+                </article>
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-gray-600 to-gray-800 flex items-center justify-center">
+                        <i class="fas fa-oil-can text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">تغيير زيت محركات Mercedes</h3>
+                        <p class="text-gray-600 mb-4">دليل شامل لتغيير زيت محركات Mercedes-Benz</p>
+                        <button class="text-blue-600 hover:text-blue-800 font-semibold">اقرأ المزيد</button>
+                    </div>
+                </article>
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-red-500 to-red-700 flex items-center justify-center">
+                        <i class="fas fa-wrench text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">صيانة محركات Audi</h3>
+                        <p class="text-gray-600 mb-4">نصائح مهمة للحفاظ على محركات Audi</p>
+                        <button class="text-blue-600 hover:text-blue-800 font-semibold">اقرأ المزيد</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engine Details Modal -->
+    <div id="engineModal" class="fixed inset-0 bg-black/50 modal hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="modalTitle" class="text-3xl font-bold gradient-text"></h2>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div id="engineImage" class="w-full h-64 bg-gradient-to-r from-gray-300 to-gray-400 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-cog text-6xl text-white"></i>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-6 mb-6">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-800">
+                                <i class="fas fa-info-circle ml-2"></i>
+                                مواصفات المحرك
+                            </h3>
+                            <div id="engineSpecs" class="space-y-2"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-red-50 rounded-lg p-6 mb-6">
+                            <h3 class="text-xl font-semibold mb-4 text-red-800">
+                                <i class="fas fa-exclamation-triangle ml-2"></i>
+                                الأعطال الشائعة
+                            </h3>
+                            <div id="commonFaults" class="space-y-3"></div>
+                        </div>
+                        
+                        <div class="bg-green-50 rounded-lg p-6 mb-6">
+                            <h3 class="text-xl font-semibold mb-4 text-green-800">
+                                <i class="fas fa-tools ml-2"></i>
+                                خطوات التشخيص
+                            </h3>
+                            <div id="diagnosticSteps" class="space-y-2"></div>
+                        </div>
+                        
+                        <div class="bg-purple-50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-purple-800">
+                                <i class="fas fa-shopping-cart ml-2"></i>
+                                قطع الغيار المطلوبة
+                            </h3>
+                            <div id="spareParts" class="space-y-2"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-yellow-50 rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-800">
+                        <i class="fas fa-file-pdf ml-2"></i>
+                        دليل تغيير حزام التوقيت
+                    </h3>
+                    <div class="pdf-viewer p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-semibold">دليل الصيانة الشامل - PDF</span>
+                            <button onclick="downloadPDF()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-download ml-2"></i>
+                                تحميل الدليل
+                            </button>
+                        </div>
+                        <div id="pdfContent" class="bg-white border rounded p-4 text-sm">
+                            <h4 class="font-bold mb-2">خطوات تغيير حزام التوقيت:</h4>
+                            <ol class="list-decimal list-inside space-y-1">
+                                <li>إيقاف تشغيل المحرك وتركه يبرد</li>
+                                <li>فصل البطارية وإزالة الأغطية</li>
+                                <li>تحديد موضع النقطة الميتة العلوية</li>
+                                <li>إزالة الحزام القديم بحذر</li>
+                                <li>فحص البكرات والمشدات</li>
+                                <li>تركيب الحزام الجديد</li>
+                                <li>ضبط التوقيت والشد المناسب</li>
+                                <li>اختبار التشغيل والتأكد من الأداء</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Euro Motors Pro</h3>
+                    <p class="text-gray-400">دليلك الشامل لعالم المحركات الأوروبية</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">الخدمات</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>تشخيص الأعطال</li>
+                        <li>دليل الصيانة</li>
+                        <li>قطع الغيار</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">العلامات التجارية</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>BMW</li>
+                        <li>Mercedes-Benz</li>
+                        <li>Audi</li>
+                        <li>Volkswagen</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">تواصل معنا</h4>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <i class="fab fa-facebook text-2xl hover:text-blue-500 cursor-pointer"></i>
+                        <i class="fab fa-twitter text-2xl hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-instagram text-2xl hover:text-pink-500 cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Euro Motors Pro. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Engine data
+        const engineData = {
+            bmw: [
+                {
+                    name: "N55B30",
+                    year: "2009-2016",
+                    displacement: "3.0L",
+                    power: "306 حصان",
+                    specs: ["محرك 6 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Valvetronic"],
+                    faults: ["تسرب في جوان الرأس", "مشاكل في مضخة الوقود عالية الضغط", "تآكل في سلسلة التوقيت"],
+                    diagnosis: ["فحص ضغط الانضغاط", "اختبار مضخة الوقود", "فحص أصوات المحرك"],
+                    parts: ["جوان رأس المحرك", "مضخة وقود عالية الضغط", "سلسلة توقيت", "مرشح زيت"]
+                },
+                {
+                    name: "B58B30",
+                    year: "2015-الآن",
+                    displacement: "3.0L",
+                    power: "340 حصان",
+                    specs: ["محرك 6 سلندر", "تيربو مفرد", "حقن مباشر ومنفذ", "نظام Double-VANOS"],
+                    faults: ["مشاكل في صمام PCV", "تسرب في مبرد الزيت", "مشاكل في حساس الضغط"],
+                    diagnosis: ["فحص نظام التهوية", "اختبار مبرد الزيت", "فحص حساسات الضغط"],
+                    parts: ["صمام PCV", "مبرد زيت", "حساس ضغط الزيت", "فلتر هواء"]
+                },
+                {
+                    name: "N20B20",
+                    year: "2011-2017",
+                    displacement: "2.0L",
+                    power: "245 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Valvetronic"],
+                    faults: ["كسر في سلسلة التوقيت", "مشاكل في التيربو", "تسرب في مبرد الشاحن"],
+                    diagnosis: ["فحص سلسلة التوقيت", "اختبار ضغط التيربو", "فحص مبرد الشاحن"],
+                    parts: ["سلسلة توقيت", "تيربو شارجر", "مبرد شاحن", "جوان غطاء الصبابات"]
+                },
+                {
+                    name: "M54B30",
+                    year: "2000-2006",
+                    displacement: "3.0L",
+                    power: "231 حصان",
+                    specs: ["محرك 6 سلندر", "شفط طبيعي", "نظام Double-VANOS", "حقن إلكتروني"],
+                    faults: ["مشاكل في نظام VANOS", "تسرب في جوان غطاء الصبابات", "مشاكل في مستشعر MAF"],
+                    diagnosis: ["فحص نظام VANOS", "اختبار تسرب الزيت", "فحص مستشعر تدفق الهواء"],
+                    parts: ["وحدة VANOS", "جوان غطاء صبابات", "مستشعر MAF", "فلتر زيت"]
+                },
+                {
+                    name: "N54B30",
+                    year: "2006-2010",
+                    displacement: "3.0L",
+                    power: "306 حصان",
+                    specs: ["محرك 6 سلندر", "تيربو مزدوج", "حقن مباشر", "نظام Valvetronic"],
+                    faults: ["مشاكل في حاقنات الوقود", "تسرب في خراطيم التيربو", "مشاكل في مضخة الوقود"],
+                    diagnosis: ["فحص حاقنات الوقود", "اختبار ضغط التيربو", "فحص مضخة الوقود"],
+                    parts: ["حاقنات وقود", "خراطيم تيربو", "مضخة وقود", "شمعات إشعال"]
+                },
+                {
+                    name: "M52B28",
+                    year: "1995-2000",
+                    displacement: "2.8L",
+                    power: "193 حصان",
+                    specs: ["محرك 6 سلندر", "شفط طبيعي", "نظام VANOS مفرد", "حقن إلكتروني"],
+                    faults: ["مشاكل في نظام التبريد", "تآكل في مضخة المياه", "مشاكل في ثرموستات"],
+                    diagnosis: ["فحص نظام التبريد", "اختبار مضخة المياه", "فحص الثرموستات"],
+                    parts: ["مضخة مياه", "ثرموستات", "رادياتير", "خراطيم تبريد"]
+                },
+                {
+                    name: "N63B44",
+                    year: "2008-2016",
+                    displacement: "4.4L",
+                    power: "407 حصان",
+                    specs: ["محرك V8", "تيربو مزدوج", "حقن مباشر", "نظام Valvetronic"],
+                    faults: ["مشاكل في التيربو", "تسرب في جوان الرأس", "مشاكل في نظام الإشعال"],
+                    diagnosis: ["فحص التيربو", "اختبار ضغط الانضغاط", "فحص نظام الإشعال"],
+                    parts: ["تيربو شارجر", "جوان رأس محرك", "شمعات إشعال", "ملفات إشعال"]
+                },
+                {
+                    name: "S65B40",
+                    year: "2007-2013",
+                    displacement: "4.0L",
+                    power: "420 حصان",
+                    specs: ["محرك V8", "شفط طبيعي", "نظام Double-VANOS", "محرك عالي الأداء"],
+                    faults: ["تآكل في محامل العمود", "مشاكل في صمامات السحب", "مشاكل في نظام التزييت"],
+                    diagnosis: ["فحص محامل العمود", "اختبار ضغط الصمامات", "فحص ضغط الزيت"],
+                    parts: ["محامل عمود مرفقي", "صمامات سحب", "مضخة زيت", "فلتر زيت عالي الأداء"]
+                },
+                {
+                    name: "N47D20",
+                    year: "2007-2014",
+                    displacement: "2.0L",
+                    power: "177 حصان",
+                    specs: ["محرك ديزل 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["كسر في سلسلة التوقيت", "مشاكل في حاقنات الديزل", "انسداد في فلتر الجسيمات"],
+                    diagnosis: ["فحص سلسلة التوقيت", "اختبار حاقنات الديزل", "فحص فلتر DPF"],
+                    parts: ["سلسلة توقيت", "حاقنات ديزل", "فلتر DPF", "مضخة وقود عالية الضغط"]
+                },
+                {
+                    name: "B48B20",
+                    year: "2014-الآن",
+                    displacement: "2.0L",
+                    power: "192 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Valvetronic"],
+                    faults: ["مشاكل في مبرد الزيت", "تسرب في جوان غطاء الصبابات", "مشاكل في صمام PCV"],
+                    diagnosis: ["فحص مبرد الزيت", "اختبار تسرب الزيت", "فحص نظام التهوية"],
+                    parts: ["مبرد زيت", "جوان غطاء صبابات", "صمام PCV", "حساس ضغط الزيت"]
+                }
+            ],
+            mercedes: [
+                {
+                    name: "M274 2.0T",
+                    year: "2013-الآن",
+                    displacement: "2.0L",
+                    power: "211 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام CAMTRONIC"],
+                    faults: ["مشاكل في مضخة الوقود", "تسرب في مبرد الشاحن", "مشاكل في صمام التحكم بالتيربو"],
+                    diagnosis: ["فحص مضخة الوقود", "اختبار مبرد الشاحن", "فحص صمام التيربو"],
+                    parts: ["مضخة وقود عالية الضغط", "مبرد شاحن", "صمام تحكم تيربو", "فلتر هواء"]
+                },
+                {
+                    name: "M276 3.0 V6",
+                    year: "2010-2017",
+                    displacement: "3.0L",
+                    power: "333 حصان",
+                    specs: ["محرك V6", "شفط طبيعي", "حقن مباشر", "نظام CAMTRONIC"],
+                    faults: ["مشاكل في سلسلة التوقيت", "تسرب في جوان غطاء الصبابات", "مشاكل في حساس الأكسجين"],
+                    diagnosis: ["فحص سلسلة التوقيت", "اختبار تسرب الزيت", "فحص حساسات الأكسجين"],
+                    parts: ["سلسلة توقيت", "جوان غطاء صبابات", "حساس أكسجين", "شمعات إشعال"]
+                },
+                {
+                    name: "M159 6.2 V8",
+                    year: "2006-2014",
+                    displacement: "6.2L",
+                    power: "525 حصان",
+                    specs: ["محرك V8", "شفط طبيعي", "محرك عالي الأداء AMG", "حقن إلكتروني"],
+                    faults: ["تآكل في محامل العمود", "مشاكل في نظام التزييت", "مشاكل في صمامات السحب"],
+                    diagnosis: ["فحص محامل العمود", "اختبار ضغط الزيت", "فحص ضغط الصمامات"],
+                    parts: ["محامل عمود مرفقي", "مضخة زيت", "صمامات سحب", "فلتر زيت عالي الأداء"]
+                },
+                {
+                    name: "OM651 2.1 CDI",
+                    year: "2008-2018",
+                    displacement: "2.1L",
+                    power: "170 حصان",
+                    specs: ["محرك ديزل 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل", "مشاكل في صمام EGR"],
+                    diagnosis: ["فحص فلتر DPF", "اختبار حاقنات الديزل", "فحص صمام EGR"],
+                    parts: ["فلتر DPF", "حاقنات ديزل", "صمام EGR", "مضخة وقود عالية الضغط"]
+                },
+                {
+                    name: "M272 3.5 V6",
+                    year: "2004-2011",
+                    displacement: "3.5L",
+                    power: "272 حصان",
+                    specs: ["محرك V6", "شفط طبيعي", "حقن إلكتروني", "نظام CAMTRONIC"],
+                    faults: ["مشاكل في موازن العمود", "تسرب في جوان الرأس", "مشاكل في مستشعر MAF"],
+                    diagnosis: ["فحص موازن العمود", "اختبار ضغط الانضغاط", "فحص مستشعر تدفق الهواء"],
+                    parts: ["موازن عمود", "جوان رأس محرك", "مستشعر MAF", "فلتر زيت"]
+                },
+                {
+                    name: "M113 5.4 V8",
+                    year: "1997-2006",
+                    displacement: "5.4L",
+                    power: "354 حصان",
+                    specs: ["محرك V8", "شفط طبيعي", "حقن إلكتروني", "محرك AMG"],
+                    faults: ["مشاكل في نظام التبريد", "تآكل في مضخة المياه", "مشاكل في ثرموستات"],
+                    diagnosis: ["فحص نظام التبريد", "اختبار مضخة المياه", "فحص الثرموستات"],
+                    parts: ["مضخة مياه", "ثرموستات", "رادياتير", "خراطيم تبريد"]
+                },
+                {
+                    name: "M256 3.0 I6",
+                    year: "2017-الآن",
+                    displacement: "3.0L",
+                    power: "367 حصان",
+                    specs: ["محرك 6 سلندر", "تيربو + كمبروسر كهربائي", "نظام هجين خفيف", "حقن مباشر"],
+                    faults: ["مشاكل في الكمبروسر الكهربائي", "مشاكل في النظام الهجين", "تسرب في مبرد الشاحن"],
+                    diagnosis: ["فحص الكمبروسر الكهربائي", "اختبار النظام الهجين", "فحص مبرد الشاحن"],
+                    parts: ["كمبروسر كهربائي", "بطارية هجين", "مبرد شاحن", "حساسات النظام الهجين"]
+                },
+                {
+                    name: "M104 3.2 I6",
+                    year: "1988-1997",
+                    displacement: "3.2L",
+                    power: "220 حصان",
+                    specs: ["محرك 6 سلندر", "شفط طبيعي", "حقن إلكتروني", "محرك كلاسيكي"],
+                    faults: ["مشاكل في نظام الإشعال", "تآكل في حلقات المكابس", "مشاكل في مستشعر الحرارة"],
+                    diagnosis: ["فحص نظام الإشعال", "اختبار ضغط الانضغاط", "فحص مستشعر الحرارة"],
+                    parts: ["شمعات إشعال", "حلقات مكابس", "مستشعر حرارة", "فلتر وقود"]
+                },
+                {
+                    name: "M278 4.6 V8",
+                    year: "2010-2017",
+                    displacement: "4.6L",
+                    power: "435 حصان",
+                    specs: ["محرك V8", "تيربو مزدوج", "حقن مباشر", "محرك AMG"],
+                    faults: ["مشاكل في التيربو", "تسرب في خراطيم الضغط", "مشاكل في مبرد الشاحن"],
+                    diagnosis: ["فحص التيربو", "اختبار خراطيم الضغط", "فحص مبرد الشاحن"],
+                    parts: ["تيربو شارجر", "خراطيم ضغط", "مبرد شاحن", "فلتر هواء عالي الأداء"]
+                },
+                {
+                    name: "OM642 3.0 V6",
+                    year: "2005-2018",
+                    displacement: "3.0L",
+                    power: "258 حصان",
+                    specs: ["محرك ديزل V6", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["مشاكل في صمام دوامة السحب", "انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل"],
+                    diagnosis: ["فحص صمامات دوامة السحب", "اختبار فلتر DPF", "فحص حاقنات الديزل"],
+                    parts: ["صمامات دوامة سحب", "فلتر DPF", "حاقنات ديزل", "مضخة وقود عالية الضغط"]
+                }
+            ],
+            audi: [
+                {
+                    name: "TFSI 2.0T",
+                    year: "2008-الآن",
+                    displacement: "2.0L",
+                    power: "200 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Valvelift"],
+                    faults: ["مشاكل في مضخة الوقود", "تسرب في مبرد الزيت", "مشاكل في صمام PCV"],
+                    diagnosis: ["فحص مضخة الوقود", "اختبار مبرد الزيت", "فحص نظام التهوية"],
+                    parts: ["مضخة وقود عالية الضغط", "مبرد زيت", "صمام PCV", "حساس ضغط الزيت"]
+                },
+                {
+                    name: "V6 3.0T",
+                    year: "2009-الآن",
+                    displacement: "3.0L",
+                    power: "333 حصان",
+                    specs: ["محرك V6", "سوبر شارجر", "حقن مباشر", "نظام Valvelift"],
+                    faults: ["مشاكل في السوبر شارجر", "تسرب في خراطيم الضغط", "مشاكل في مبرد الشاحن"],
+                    diagnosis: ["فحص السوبر شارجر", "اختبار خراطيم الضغط", "فحص مبرد الشاحن"],
+                    parts: ["سوبر شارجر", "خراطيم ضغط", "مبرد شاحن", "فلتر هواء"]
+                },
+                {
+                    name: "TDI 2.0",
+                    year: "2008-2015",
+                    displacement: "2.0L",
+                    power: "150 حصان",
+                    specs: ["محرك ديزل 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل", "مشاكل في صمام EGR"],
+                    diagnosis: ["فحص فلتر DPF", "اختبار حاقنات الديزل", "فحص صمام EGR"],
+                    parts: ["فلتر DPF", "حاقنات ديزل", "صمام EGR", "مضخة وقود عالية الضغط"]
+                },
+                {
+                    name: "RS V8 4.2",
+                    year: "2006-2015",
+                    displacement: "4.2L",
+                    power: "420 حصان",
+                    specs: ["محرك V8", "شفط طبيعي", "محرك عالي الأداء", "حقن إلكتروني"],
+                    faults: ["تآكل في محامل العمود", "مشاكل في نظام التزييت", "مشاكل في صمامات السحب"],
+                    diagnosis: ["فحص محامل العمود", "اختبار ضغط الزيت", "فحص ضغط الصمامات"],
+                    parts: ["محامل عمود مرفقي", "مضخة زيت", "صمامات سحب", "فلتر زيت عالي الأداء"]
+                },
+                {
+                    name: "FSI 3.2 V6",
+                    year: "2003-2008",
+                    displacement: "3.2L",
+                    power: "255 حصان",
+                    specs: ["محرك V6", "شفط طبيعي", "حقن مباشر", "نظام Valvelift"],
+                    faults: ["مشاكل في حاقنات الوقود", "تراكم الكربون", "مشاكل في مستشعر MAF"],
+                    diagnosis: ["فحص حاقنات الوقود", "تنظيف الكربون", "فحص مستشعر تدفق الهواء"],
+                    parts: ["حاقنات وقود", "منظف كربون", "مستشعر MAF", "شمعات إشعال"]
+                }
+            ],
+            vw: [
+                {
+                    name: "TSI 1.4T",
+                    year: "2005-الآن",
+                    displacement: "1.4L",
+                    power: "150 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو + سوبر شارجر", "حقن مباشر", "تقنية مزدوجة الشحن"],
+                    faults: ["مشاكل في سلسلة التوقيت", "تسرب في مبرد الزيت", "مشاكل في صمام PCV"],
+                    diagnosis: ["فحص سلسلة التوقيت", "اختبار مبرد الزيت", "فحص نظام التهوية"],
+                    parts: ["سلسلة توقيت", "مبرد زيت", "صمام PCV", "حساس ضغط الزيت"]
+                },
+                {
+                    name: "TDI 2.0",
+                    year: "2003-2015",
+                    displacement: "2.0L",
+                    power: "140 حصان",
+                    specs: ["محرك ديزل 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل", "مشاكل في صمام EGR"],
+                    diagnosis: ["فحص فلتر DPF", "اختبار حاقنات الديزل", "فحص صمام EGR"],
+                    parts: ["فلتر DPF", "حاقنات ديزل", "صمام EGR", "مضخة وقود عالية الضغط"]
+                },
+                {
+                    name: "VR6 2.8",
+                    year: "1991-2005",
+                    displacement: "2.8L",
+                    power: "174 حصان",
+                    specs: ["محرك VR6", "شفط طبيعي", "حقن إلكتروني", "تصميم مضغوط"],
+                    faults: ["مشاكل في نظام التبريد", "تآكل في مضخة المياه", "مشاكل في ثرموستات"],
+                    diagnosis: ["فحص نظام التبريد", "اختبار مضخة المياه", "فحص الثرموستات"],
+                    parts: ["مضخة مياه", "ثرموستات", "رادياتير", "خراطيم تبريد"]
+                },
+                {
+                    name: "TSI 2.0T",
+                    year: "2008-الآن",
+                    displacement: "2.0L",
+                    power: "200 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Valvelift"],
+                    faults: ["مشاكل في مضخة الوقود", "تسرب في مبرد الشاحن", "مشاكل في صمام التحكم بالتيربو"],
+                    diagnosis: ["فحص مضخة الوقود", "اختبار مبرد الشاحن", "فحص صمام التيربو"],
+                    parts: ["مضخة وقود عالية الضغط", "مبرد شاحن", "صمام تحكم تيربو", "فلتر هواء"]
+                },
+                {
+                    name: "W12 6.0",
+                    year: "2001-2016",
+                    displacement: "6.0L",
+                    power: "450 حصان",
+                    specs: ["محرك W12", "شفط طبيعي", "محرك فاخر", "حقن إلكتروني"],
+                    faults: ["مشاكل في نظام الإشعال", "تآكل في حلقات المكابس", "مشاكل في مستشعر الحرارة"],
+                    diagnosis: ["فحص نظام الإشعال", "اختبار ضغط الانضغاط", "فحص مستشعر الحرارة"],
+                    parts: ["شمعات إشعال", "حلقات مكابس", "مستشعر حرارة", "فلتر وقود"]
+                }
+            ],
+            renault: [
+                {
+                    name: "K4M 1.6",
+                    year: "1999-الآن",
+                    displacement: "1.6L",
+                    power: "110 حصان",
+                    specs: ["محرك 4 سلندر", "شفط طبيعي", "حقن إلكتروني", "16 صباب"],
+                    faults: ["مشاكل في ملف الإشعال", "تسرب في جوان غطاء الصبابات", "مشاكل في حساس الأكسجين"],
+                    diagnosis: ["فحص ملفات الإشعال", "اختبار تسرب الزيت", "فحص حساسات الأكسجين"],
+                    parts: ["ملفات إشعال", "جوان غطاء صبابات", "حساس أكسجين", "شمعات إشعال"]
+                },
+                {
+                    name: "F4R 2.0",
+                    year: "1998-2012",
+                    displacement: "2.0L",
+                    power: "140 حصان",
+                    specs: ["محرك 4 سلندر", "شفط طبيعي", "حقن إلكتروني", "16 صباب"],
+                    faults: ["مشاكل في نظام التبريد", "تآكل في مضخة المياه", "مشاكل في ثرموستات"],
+                    diagnosis: ["فحص نظام التبريد", "اختبار مضخة المياه", "فحص الثرموستات"],
+                    parts: ["مضخة مياه", "ثرموستات", "رادياتير", "خراطيم تبريد"]
+                },
+                {
+                    name: "dCi 1.5",
+                    year: "2001-الآن",
+                    displacement: "1.5L",
+                    power: "90 حصان",
+                    specs: ["محرك ديزل 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل", "مشاكل في صمام EGR"],
+                    diagnosis: ["فحص فلتر DPF", "اختبار حاقنات الديزل", "فحص صمام EGR"],
+                    parts: ["فلتر DPF", "حاقنات ديزل", "صمام EGR", "مضخة وقود عالية الضغط"]
+                },
+                {
+                    name: "TCe 1.2T",
+                    year: "2012-الآن",
+                    displacement: "1.2L",
+                    power: "115 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو مفرد", "حقن مباشر", "محرك صغير الحجم"],
+                    faults: ["مشاكل في التيربو", "تسرب في مبرد الشاحن", "مشاكل في صمام التحكم بالتيربو"],
+                    diagnosis: ["فحص التيربو", "اختبار مبرد الشاحن", "فحص صمام التيربو"],
+                    parts: ["تيربو شارجر", "مبرد شاحن", "صمام تحكم تيربو", "فلتر هواء"]
+                },
+                {
+                    name: "V6 3.0 dCi",
+                    year: "2007-2015",
+                    displacement: "3.0L",
+                    power: "235 حصان",
+                    specs: ["محرك ديزل V6", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["مشاكل في صمام دوامة السحب", "انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل"],
+                    diagnosis: ["فحص صمامات دوامة السحب", "اختبار فلتر DPF", "فحص حاقنات الديزل"],
+                    parts: ["صمامات دوامة سحب", "فلتر DPF", "حاقنات ديزل", "مضخة وقود عالية الضغط"]
+                }
+            ],
+            peugeot: [
+                {
+                    name: "TU5JP4 1.6",
+                    year: "1996-2012",
+                    displacement: "1.6L",
+                    power: "110 حصان",
+                    specs: ["محرك 4 سلندر", "شفط طبيعي", "حقن إلكتروني", "16 صباب"],
+                    faults: ["مشاكل في ملف الإشعال", "تسرب في جوان غطاء الصبابات", "مشاكل في حساس الأكسجين"],
+                    diagnosis: ["فحص ملفات الإشعال", "اختبار تسرب الزيت", "فحص حساسات الأكسجين"],
+                    parts: ["ملفات إشعال", "جوان غطاء صبابات", "حساس أكسجين", "شمعات إشعال"]
+                },
+                {
+                    name: "HDi 2.0",
+                    year: "1999-2014",
+                    displacement: "2.0L",
+                    power: "136 حصان",
+                    specs: ["محرك ديزل 4 سلندر", "تيربو مفرد", "حقن مباشر", "نظام Common Rail"],
+                    faults: ["انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل", "مشاكل في صمام EGR"],
+                    diagnosis: ["فحص فلتر DPF", "اختبار حاقنات الديزل", "فحص صمام EGR"],
+                    parts: ["فلتر DPF", "حاقنات ديزل", "صمام EGR", "مضخة وقود عالية الضغط"]
+                },
+                {
+                    name: "THP 1.6T",
+                    year: "2006-الآن",
+                    displacement: "1.6L",
+                    power: "156 حصان",
+                    specs: ["محرك 4 سلندر", "تيربو مفرد", "حقن مباشر", "محرك عالي الأداء"],
+                    faults: ["مشاكل في التيربو", "تسرب في مبرد الشاحن", "مشاكل في صمام التحكم بالتيربو"],
+                    diagnosis: ["فحص التيربو", "اختبار مبرد الشاحن", "فحص صمام التيربو"],
+                    parts: ["تيربو شارجر", "مبرد شاحن", "صمام تحكم تيربو", "فلتر هواء"]
+                },
+                {
+                    name: "XU10J4RS 2.0",
+                    year: "1991-2000",
+                    displacement: "2.0L",
+                    power: "167 حصان",
+                    specs: ["محرك 4 سلندر", "شفط طبيعي", "حقن إلكتروني", "16 صباب"],
+                    faults: ["مشاكل في نظام التبريد", "تآكل في مضخة المياه", "مشاكل في ثرموستات"],
+                    diagnosis: ["فحص نظام التبريد", "اختبار مضخة المياه", "فحص الثرموستات"],
+                    parts: ["مضخة مياه", "ثرموستات", "رادياتير", "خراطيم تبريد"]
+                },
+                {
+                    name: "BlueHDi 1.5",
+                    year: "2014-الآن",
+                    displacement: "1.5L",
+                    power: "100 حصان",
+                    specs: ["محرك ديزل 4 سلندر", "تيربو مفرد", "حقن مباشر", "تقنية BlueHDi"],
+                    faults: ["انسداد في فلتر الجسيمات", "مشاكل في حاقنات الديزل", "مشاكل في نظام SCR"],
+                    diagnosis: ["فحص فلتر DPF", "اختبار حاقنات الديزل", "فحص نظام SCR"],
+                    parts: ["فلتر DPF", "حاقنات ديزل", "نظام SCR", "مضخة وقود عالية الضغط"]
+                }
+            ]
+        };
+
+        // Populate engines
+        function populateEngines() {
+            Object.keys(engineData).forEach(brand => {
+                const container = document.getElementById(`${brand}-engines`);
+                engineData[brand].forEach((engine, index) => {
+                    const engineCard = document.createElement('div');
+                    engineCard.className = 'engine-card bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl';
+                    engineCard.onclick = () => showEngineDetails(brand, index);
+                    
+                    engineCard.innerHTML = `
+                        <div class="w-full h-32 bg-gradient-to-r from-gray-400 to-gray-600 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-cog text-4xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">${engine.name}</h4>
+                        <p class="text-gray-600 text-sm mb-1">${engine.year}</p>
+                        <p class="text-gray-600 text-sm mb-1">${engine.displacement}</p>
+                        <p class="text-blue-600 font-semibold">${engine.power}</p>
+                    `;
+                    
+                    container.appendChild(engineCard);
+                });
+            });
+        }
+
+        // Show engine details
+        function showEngineDetails(brand, index) {
+            const engine = engineData[brand][index];
+            const modal = document.getElementById('engineModal');
+            
+            document.getElementById('modalTitle').textContent = engine.name;
+            
+            // Populate specs
+            const specsContainer = document.getElementById('engineSpecs');
+            specsContainer.innerHTML = engine.specs.map(spec => 
+                `<div class="flex items-center"><i class="fas fa-check text-blue-600 ml-2"></i><span>${spec}</span></div>`
+            ).join('');
+            
+            // Populate faults
+            const faultsContainer = document.getElementById('commonFaults');
+            faultsContainer.innerHTML = engine.faults.map(fault => 
+                `<div class="flex items-start"><i class="fas fa-exclamation-circle text-red-600 ml-2 mt-1"></i><span>${fault}</span></div>`
+            ).join('');
+            
+            // Populate diagnosis
+            const diagnosisContainer = document.getElementById('diagnosticSteps');
+            diagnosisContainer.innerHTML = engine.diagnosis.map(step => 
+                `<div class="flex items-center"><i class="fas fa-search text-green-600 ml-2"></i><span>${step}</span></div>`
+            ).join('');
+            
+            // Populate parts
+            const partsContainer = document.getElementById('spareParts');
+            partsContainer.innerHTML = engine.parts.map(part => 
+                `<div class="flex items-center"><i class="fas fa-wrench text-purple-600 ml-2"></i><span>${part}</span></div>`
+            ).join('');
+            
+            modal.classList.remove('hidden');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('engineModal').classList.add('hidden');
+        }
+
+        // Download PDF
+        function downloadPDF() {
+            // Create a simple PDF-like content
+            const pdfContent = `
+دليل تغيير حزام التوقيت - Euro Motors Pro
+
+خطوات تغيير حزام التوقيت:
+
+1. إيقاف تشغيل المحرك وتركه يبرد تماماً
+2. فصل البطارية وإزالة الأغطية البلاستيكية
+3. تحديد موضع النقطة الميتة العلوية للمكبس الأول
+4. إزالة الحزام القديم بحذر شديد
+5. فحص البكرات والمشدات للتأكد من سلامتها
+6. تركيب الحزام الجديد وفقاً لعلامات التوقيت
+7. ضبط التوقيت والشد المناسب للحزام
+8. اختبار التشغيل والتأكد من الأداء السليم
+
+تحذيرات مهمة:
+- لا تقم بتدوير المحرك بدون حزام التوقيت
+- تأكد من محاذاة جميع علامات التوقيت
+- استخدم عزم الربط المحدد من الشركة المصنعة
+
+© 2024 Euro Motors Pro
+            `;
+            
+            const blob = new Blob([pdfContent], { type: 'text/plain;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'دليل_تغيير_حزام_التوقيت.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            populateEngines();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('engineModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982b9d17574b2139',t:'MTc1ODQ3OTIxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
